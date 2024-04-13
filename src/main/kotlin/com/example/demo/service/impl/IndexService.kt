@@ -45,7 +45,6 @@ class IndexService(
 
     override fun getCurrency(): List<VueMultiSelectDTO> {
         return currencyRepository.findAll().map { original -> VueMultiSelectDTO(value = original.isoCode, label = original.name) }
-
     }
 
     override fun convertCurrency(value: Double, from: String, to: String): Double {
@@ -87,7 +86,6 @@ class IndexService(
             }
             dynamicDateFrom = dynamicDateFrom.plusDays(1)
         }
-
         return history
     }
 

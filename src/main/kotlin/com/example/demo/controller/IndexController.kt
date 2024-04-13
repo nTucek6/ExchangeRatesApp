@@ -24,13 +24,11 @@ class IndexController(val indexService: IndexService,
         return indexService.getLatest()
     }
     */
-
     @GetMapping("/getCurrency")
     fun getCurrency(): List<VueMultiSelectDTO> {
         logger.info("getCurrency Called")
         return indexService.getCurrency()
     }
-
     @GetMapping("/convertCurrency")
     fun convertCurrency(
             @RequestParam(required = true) value: Double,
@@ -40,7 +38,6 @@ class IndexController(val indexService: IndexService,
         logger.info("convertCurrency Called")
         return indexService.convertCurrency(value, from, to)
     }
-
     @GetMapping("/getCurrencyHistory")
     fun getCurrencyHistory(
             @RequestParam(required = true) date: String,
@@ -49,7 +46,6 @@ class IndexController(val indexService: IndexService,
         logger.info("getCurrencyHistory Called")
         return indexService.getCurrencyHistory(date, currency)
     }
-
     @GetMapping("/getTimeSeries")
     fun getTimeSeries(
             @RequestParam(required = true) dateFrom: String,
@@ -59,5 +55,4 @@ class IndexController(val indexService: IndexService,
         logger.info("getTimeSeries Called")
         return indexService.getTimeSeries(dateFrom,dateTo, currency)
     }
-
 }

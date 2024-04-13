@@ -12,11 +12,11 @@ class StartupService(
         val indexService: IndexService,
         val logger: Logger = LoggerFactory.getLogger(StartupService::class.java)
 ) {
-
     @EventListener(ApplicationStartedEvent::class)
     fun onServiceStartup(applicationStartedEvent: ApplicationStartedEvent)
     {
         indexService.saveCurrencies()
+        indexService.saveLatest()
         logger.info("Database content init")
     }
 
